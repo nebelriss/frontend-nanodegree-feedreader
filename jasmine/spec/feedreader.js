@@ -70,10 +70,14 @@ $(function () {
      * clicked and does it hide when clicked again.
      */
     it('should change visibility when the menu icon is clicked', function() {
+      // simulating a click action
       $('.menu-icon-link').click();
+      
       expect($('body').hasClass('menu-hidden')).toBe(false);
 
+      // simulating a click action
       $('.menu-icon-link').click();
+      
       expect($('body').hasClass('menu-hidden')).toBe(true);
     });
   });
@@ -82,6 +86,7 @@ $(function () {
   describe('Initial Entries', function () {
 
     beforeEach(function(done) {
+      // get first feed
       loadFeed(0, function() {
         done();
       });
@@ -105,8 +110,11 @@ $(function () {
     const feeds = [];
 
     beforeEach(function(done) {
+      // get first feed and add to feeds
       loadFeed(0, function () {
         feeds.push($('.feed').html());
+
+        // get second feed and add to feeds
         loadFeed(1, function() {
           feeds.push($('.feed').html());
           done();
